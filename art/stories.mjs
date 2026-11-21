@@ -39,10 +39,10 @@ export const CARDS = [
     art: ['plane', { label: 'DAVAO', big: '146', small: 'ALL SAFE' }],
   },
   {
-    region: 'ASIA', field: 'North Korea', at: [125.7, 39.0], nudge: [-2, -8],
-    head: 'Kim Jong Un tours school-supply plants, state media reports',
-    sure: 'CLAIM', src: 'KCNA',
-    art: ['capitol', { label: 'PYONGYANG', bg: '#f1e4e2' }],
+    region: 'AFRICA', field: 'Obituary', at: [28.0, -26.2],
+    head: 'UN and African Union chiefs honour Mlambo-Ngcuka',
+    sure: 'OFFICIAL', src: 'UN · AU',
+    art: ['capitol', { label: 'PRETORIA', bg: '#e6ecdc' }],
   },
   {
     region: 'ASIA', field: 'Law', at: [105.8, 21.0], nudge: [-6, 4],
@@ -93,10 +93,10 @@ export const CARDS = [
     art: ['sport', { kind: 'car', bg: '#2a2140', big: 'P1', small: 'VERSTAPPEN', label: 'LAS VEGAS' }],
   },
   {
-    region: 'MIDDLE EAST', field: 'Iran war', at: [51.4, 35.7],
-    head: 'Iran still seeks a deal to end the war, Araqchi says',
-    sure: 'CLAIM', src: 'IRAN DAILY · REUTERS',
-    art: ['flags', { a: ['#239f40', '#fff', '#da0000'], b: ['#b22234', '#fff', '#3c3b6e'], label: 'TEHRAN', rift: true }],
+    region: 'EUROPE', field: 'Ukraine war', at: [33.4, 47.9],
+    head: 'Russian missiles and 148 drones hit Kryvyi Rih overnight',
+    sure: 'OFFICIAL', src: 'UKR AIR FORCE',
+    art: ['strike', { label: 'KRYVYI RIH', big: '83', small: 'HURT, 2 DEAD' }],
   },
   {
     region: 'MIDDLE EAST', field: 'Shipping', at: [56.2, 26.6], nudge: [8, 4],
@@ -120,6 +120,18 @@ export const BRIEFS = [
   { region: 'OCEANIA', field: 'Consumers', place: 'Canberra', text: 'to review laws for AI shopping agents', at: [149.1, -35.3] },
   { region: 'OCEANIA', field: 'Politics', place: 'Victoria', text: 'last Saturday of campaign before vote', at: [145.0, -37.8] },
   { region: 'ASIA', field: 'Education', place: 'Seoul', text: 'essay exams open; 111 caught cheating', at: [127.0, 37.5] },
+  { region: 'AFRICA', field: 'Football', place: 'CAF', text: 'Motsepe backs Infantino for FIFA again', at: [31.2, 30.0] },
+  { region: 'MIDDLE EAST', field: 'Iran war', place: 'Iran', text: 'IRGC says it downed a US MQ-9 drone', at: [56.3, 27.2] },
+  { region: 'MIDDLE EAST', field: 'Diplomacy', place: 'Tehran', text: 'Araqchi: still open to a deal on war', at: [51.4, 35.7] },
+  { region: 'ASIA', field: 'North Korea', place: 'Pyongyang', text: 'Kim tours school-supply plants: KCNA', at: [125.7, 39.0] },
+  { region: 'EUROPE', field: 'EU budget', place: 'Brussels', text: 'Costa’s 2028-34 plan keeps Ukraine aid flat', at: [4.4, 50.8] },
+  { region: 'EUROPE', field: 'Football', place: 'Bayern', text: 'Kane has ankle surgery, out for months', at: [11.6, 48.1] },
+  { region: 'ASIA', field: 'Culture', place: 'Japan', text: '200 town mascots meet fans in Hanyu', at: [139.5, 36.2] },
+  { region: 'ASIA', field: 'Cricket', place: 'Pakistan', text: 'PCB widens central contracts to 38', at: [74.3, 31.5] },
+  { region: 'ASIA', field: 'Cyber', place: 'Singapore', text: 'YMCA youth portal hit by data breach', at: [103.8, 1.35] },
+  { region: 'ASIA', field: 'Politics', place: 'India', text: 'Akhilesh accuses UP officials of bias', at: [80.9, 26.8] },
+  { region: 'OCEANIA', field: 'Football', place: 'AFLW', text: 'Melbourne beat Carlton to reach final', at: [144.9, -37.8] },
+  { region: 'OCEANIA', field: 'Crime', place: 'Melbourne', text: 'man stabbed on Bourke St; hunt on', at: [144.96, -37.81] },
 ];
 
 // The day by the clock, in UTC. Only events whose time is on record.
