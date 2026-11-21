@@ -9,15 +9,15 @@ export const DAY = { long: 'Saturday 21 November 2026', short: 'Saturday 21 Nove
 export const LEADS = [
   {
     region: 'MIDDLE EAST', field: 'Yemen war', at: [46.7, 24.7],
-    head: 'Saudi-led coalition downs three Houthi missiles over Riyadh',
-    deck: 'Sirens sounded in the capital for a third night. The coalition says it destroyed three ballistic missiles before dawn; reporters heard blasts.',
+    head: 'Saudis down three Houthi missiles over Riyadh',
+    deck: 'Sirens sounded for a third night. The Saudi-led coalition says it destroyed three ballistic missiles; reporters heard blasts.',
     sure: 'CLAIM', src: 'COALITION · REUTERS, AFP',
     art: ['intercept', { label: 'RIYADH · BEFORE DAWN', label2: '3 MISSILES', tower: 0.3 }],
   },
   {
     region: 'EUROPE', field: 'Climate', at: [30.7, 36.9],
     head: 'COP31 runs into overtime with no deal on fossil fuels',
-    deck: 'Nearly 200 countries stay on in Antalya after Friday’s deadline passed; Türkiye’s presidency promises a third draft text on Saturday.',
+    deck: 'Nearly 200 countries stay on in Antalya past Friday’s deadline; Türkiye’s presidency promises a third draft text.',
     sure: 'CONFIRMED', src: 'REUTERS · AFP · AL JAZEERA',
     art: ['talks', { label: 'COP31 · ANTALYA', label2: 'OVERTIME', clock: true }],
   },

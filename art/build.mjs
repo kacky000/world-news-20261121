@@ -71,7 +71,7 @@ const brief = (b) => `<li>${badge(b, 14)}<b>${esc(b.place)}:</b> ${esc(b.text)}<
 
 // The day by the clock: a line from 00:00 to 24:00 UTC with each timed event hung on it.
 const clock = () => {
-  const x0 = 96, x1 = 968, w = 996, yLine = 22;
+  const x0 = 96, x1 = 952, w = 996, yLine = 22;
   const at = (t) => { const [h, m] = t.split(':').map(Number); return x0 + ((h * 60 + m) / 1440) * (x1 - x0); };
   let out = `<svg viewBox="0 0 ${w} 44" width="${w}" height="44" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">`;
   out += `<text x="0" y="17" font-size="11.5" font-weight="700" fill="#a1281c" letter-spacing="0.8">THE DAY</text><text x="0" y="31" font-size="11.5" font-weight="700" fill="#a1281c" letter-spacing="0.8">IN UTC</text>`;
@@ -91,10 +91,12 @@ const clock = () => {
 };
 
 const legend = () => Object.entries(SURE).map(([k, v]) =>
-  `<span class="lg"><span class="tag" style="background:${v.fill};color:${v.ink}">${k}</span> ${v.note}</span>`).join('');
+  `<span class="lg"><span class="tag" style="background:${v.fill};color:${v.ink}">${k}</span> ${v.note}</span>`).join(' ');
 
+// Region names as they read in the key under the map, with how many stories each has.
+const NAMES = { 'EUROPE': 'Europe', 'MIDDLE EAST': 'Middle East', 'ASIA': 'Asia', 'AFRICA': 'Africa', 'N. AMERICA': 'N. America', 'LATIN AMERICA': 'Latin America', 'OCEANIA': 'Oceania' };
 const regionKey = () => Object.entries(REGIONS).map(([k, v]) =>
-  `<span class="rk"><i style="background:${v}"></i>${k[0] + k.slice(1).toLowerCase()} ${all.filter((s) => s.region === k).length}</span>`).join('');
+  `<span class="rk"><i style="background:${v}"></i>${NAMES[k]} ${all.filter((s) => s.region === k).length}</span>`).join(' ');
 
 const half = Math.ceil(BRIEFS.length / 2);
 const count = `${all.length} STORIES · ${regionsUsed.size} REGIONS · ${fields.size} FIELDS · EVERY ONE FROM THIS ${DAY.weekday.toUpperCase()}`;
@@ -107,13 +109,14 @@ html,body{width:1024px;height:1024px;overflow:hidden;background:#f6f1e6;color:#1
 .page{position:relative;width:1024px;height:1024px;padding:7px 14px 0}
 .top{display:flex;justify-content:space-between;font-size:11.5px;font-weight:700;letter-spacing:1.1px;height:15px}
 .top .l{color:#a1281c}
-h1{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:77px;line-height:70px;height:72px;letter-spacing:-1.6px;white-space:nowrap;text-align:center;border-bottom:3px solid #1b1b1b}
+h1{font-family:Cambria,Georgia,'Times New Roman',serif;font-weight:700;font-size:80px;line-height:72px;height:77px;letter-spacing:-1.6px;white-space:nowrap;text-align:center;border-bottom:3px solid #1b1b1b}
 .clock{height:46px;border-bottom:1px solid #1b1b1b;margin-bottom:6px}
-.leads{display:grid;grid-template-columns:repeat(3,326px);gap:9px;height:199px}
+.leads{display:grid;grid-template-columns:repeat(3,326px);gap:9px;height:205px}
 .cards{display:grid;grid-template-columns:repeat(6,161px);gap:6px;margin-top:6px;height:137px}
 article{background:#fffdf8;border-top:3px solid;overflow:hidden;position:relative}
 .art{display:block}
-.kick{font-size:11px;letter-spacing:.5px;color:#555;padding:4px 6px 0;white-space:nowrap;overflow:hidden}
+.kick{font-size:11px;letter-spacing:.4px;color:#555;padding:4px 6px 0;white-space:nowrap;overflow:hidden}
+.card .kick{font-size:10.5px;letter-spacing:.1px;padding:4px 5px 0}
 .num{display:inline-block;border-radius:50%;color:#fff;text-align:center;font-weight:700;margin-right:4px;vertical-align:-2px;letter-spacing:0;flex:none}
 h2{font-family:Georgia,serif;font-size:21.5px;line-height:23px;padding:2px 7px 0;letter-spacing:-.3px}
 .lead p{font-size:12px;line-height:14.5px;padding:3px 7px 0;color:#2a2a2a}
@@ -137,7 +140,7 @@ h3{font-family:Georgia,serif;font-size:14px;line-height:15.5px;padding:2px 6px 0
 .briefs{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
 .briefs ul{list-style:none}
 .briefs li{font-size:12.4px;line-height:17.6px;height:17.6px;white-space:nowrap;overflow:hidden;border-bottom:1px dotted #b9b2a3}
-.foot{position:absolute;left:14px;right:14px;bottom:4px;font-size:11px;display:flex;justify-content:space-between;border-top:1px solid #1b1b1b;padding-top:2px}
+.foot{position:absolute;left:14px;right:14px;bottom:4px;font-size:11px;display:flex;justify-content:space-between;border-top:1px solid #1b1b1b;padding-top:2px;white-space:nowrap}
 </style></head><body><div class="page">
 <div class="top"><span class="l">THE WORLD'S NEWS OF ONE DAY, ON ONE PAGE</span><span>${count}</span></div>
 <h1>${DAY.long}</h1>
@@ -151,7 +154,7 @@ h3{font-family:Georgia,serif;font-size:14px;line-height:15.5px;padding:2px 6px 0
 ${worldMap(318, 132, all, REGIONS)}
 <div class="rks">${regionKey()}</div>
 <div class="sure"><b>HOW SURE</b>${legend()}</div>
-<div class="check"><div class="ch">DATE CHECK · LEFT OUT, NOT FROM SATURDAY</div>
+<div class="check"><div class="ch">DATE CHECK · OLDER NEWS, LEFT OUT</div>
 <table>${OLDER.map((o) => `<tr><td>${esc(o.what)}</td><td>${esc(o.when)}</td></tr>`).join('')}</table>
 <div class="ny"><b>Not yet:</b> ${esc(NOT_YET)}</div></div>
 </div>
@@ -160,7 +163,7 @@ ${worldMap(318, 132, all, REGIONS)}
 <div class="briefs"><ul>${BRIEFS.slice(0, half).map(brief).join('')}</ul><ul>${BRIEFS.slice(half).map(brief).join('')}</ul></div>
 </div>
 </section>
-<div class="foot"><span><b>Every story here happened, or was first reported, on ${DAY.long}.</b> Claims are attributed; figures are as reported.</span><span>Sources: ${esc(SOURCES)}. Original drawings.</span></div>
+<div class="foot"><span><b>Every story here happened, or was first reported, on ${DAY.long}.</b></span><span>Sources: ${esc(SOURCES)}. Original drawings.</span></div>
 </div></body></html>
 `;
 

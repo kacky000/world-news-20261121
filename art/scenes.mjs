@@ -18,10 +18,13 @@ function plate(w, h, text, { at = 'bl', fill = '#1b1b1b', ink = '#fff' } = {}) {
 }
 
 // A big figure with a short caption, for stories that are a number.
-function figure(w, h, x, y, big, small, ink = '#1b1b1b') {
-  const size = h * 0.5;
-  return `<text x="${r(x)}" y="${r(y)}" font-family="Georgia, serif" font-size="${r(size)}" font-weight="700" fill="${ink}" text-anchor="middle">${esc(big)}</text>` +
-    (small ? `<text x="${r(x)}" y="${r(y + 13)}" ${F} font-size="10.5" font-weight="700" letter-spacing="0.5" fill="${ink}" text-anchor="middle">${esc(small)}</text>` : '');
+// It always sits in the lower part of the picture, clear of a name plate along the top edge.
+function figure(w, h, x, _y, big, small, ink = '#1b1b1b') {
+  const size = h * (big.length > 5 ? 0.38 : 0.44);
+  const y = small ? h * 0.7 : h * 0.8;
+  // Arial, not Georgia: Georgia's figures hang below the line and would run into the caption.
+  return `<text x="${r(x)}" y="${r(y)}" ${F} font-size="${r(size)}" font-weight="900" letter-spacing="-0.5" fill="${ink}" text-anchor="middle">${esc(big)}</text>` +
+    (small ? `<text x="${r(x)}" y="${r(y + (h > 60 ? 15 : 11.5))}" ${F} font-size="${h > 60 ? 11.5 : 10.5}" font-weight="700" letter-spacing="0.5" fill="${ink}" text-anchor="middle">${esc(small)}</text>` : '');
 }
 
 // A flag made of plain stripes: dir 'h' stacks them, 'v' sets them side by side.
@@ -113,11 +116,14 @@ export const SCENES = {
     out += `<polygon points="${r(cx - bw / 2 - 4)},${r(top)} ${r(cx)},${r(h * 0.08)} ${r(cx + bw / 2 + 4)},${r(top)}" fill="#8f8572"/>`;
     out += `<rect x="${r(cx - bw / 2)}" y="${r(top)}" width="${r(bw)}" height="${r(h * 0.07)}" fill="#6f6757"/><rect x="${r(cx - bw / 2 - 3)}" y="${r(base - h * 0.07)}" width="${r(bw + 6)}" height="${r(h * 0.07)}" fill="#6f6757"/>`;
     for (let i = 0; i < 5; i++) out += `<rect x="${r(cx - bw / 2 + 3 + i * (bw - 12) / 4)}" y="${r(top + h * 0.07)}" width="6" height="${r(base - top - h * 0.14)}" fill="#b9af9a"/>`;
-    const sx = w * (o.x ?? 0.3) + bw * 0.5 + w * 0.16, sy = h * 0.22;
-    out += `<path d="M${r(sx)} ${r(sy)} V ${r(h * 0.82)} M${r(sx - h * 0.3)} ${r(sy + 4)} H ${r(sx + h * 0.3)}" stroke="#1b1b1b" stroke-width="2"/>`;
-    out += `<path d="M${r(sx - h * 0.44)} ${r(h * 0.52)} h ${r(h * 0.28)} l ${r(-h * 0.14)} ${r(-h * 0.26)}z M${r(sx + h * 0.16)} ${r(h * 0.62)} h ${r(h * 0.28)} l ${r(-h * 0.14)} ${r(-h * 0.36)}z" fill="#c9a227" stroke="#1b1b1b" stroke-width="0.8"/>`;
-    if (o.big) out += figure(w, h, w * 0.8, h * 0.56, o.big, o.small, '#a1281c');
-    return out + plate(w, h, o.label, { at: 'bl' });
+    if (o.big) out += figure(w, h, w * 0.74, 0, o.big, o.small, '#a1281c');
+    else {
+      // With no figure to show, the scales of justice stand beside the building.
+      const sx = cx + bw * 0.5 + w * 0.2, sy = h * 0.26;
+      out += `<path d="M${r(sx)} ${r(sy)} V ${r(h * 0.86)} M${r(sx - h * 0.3)} ${r(sy + 4)} H ${r(sx + h * 0.3)}" stroke="#1b1b1b" stroke-width="2"/>`;
+      out += `<path d="M${r(sx - h * 0.44)} ${r(h * 0.56)} h ${r(h * 0.28)} l ${r(-h * 0.14)} ${r(-h * 0.26)}z M${r(sx + h * 0.16)} ${r(h * 0.66)} h ${r(h * 0.28)} l ${r(-h * 0.14)} ${r(-h * 0.36)}z" fill="#c9a227" stroke="#1b1b1b" stroke-width="0.8"/>`;
+    }
+    return out + plate(w, h, o.label, { at: 'tr' });
   },
 
   // A chart line that rises or falls, with the figure beside it.
