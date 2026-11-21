@@ -137,7 +137,8 @@ h3{font-family:Georgia,serif;font-size:14px;line-height:15.5px;padding:2px 6px 0
 .check table{width:100%;border-collapse:collapse;font-size:11.5px;line-height:13.5px}
 .check td:last-child{text-align:right;font-weight:700;color:#a1281c;white-space:nowrap}
 .check .ny{font-size:11.5px;line-height:13.5px;margin-top:1px}
-.briefs{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.briefs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 14px}
+.low{grid-template-columns:318px minmax(0,1fr)!important}
 .briefs ul{list-style:none}
 .briefs li{font-size:12.4px;line-height:17.6px;height:17.6px;white-space:nowrap;overflow:hidden;border-bottom:1px dotted #b9b2a3}
 .foot{position:absolute;left:14px;right:14px;bottom:4px;font-size:11px;display:flex;justify-content:space-between;border-top:1px solid #1b1b1b;padding-top:2px;white-space:nowrap}

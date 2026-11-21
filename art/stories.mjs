@@ -58,9 +58,9 @@ export const CARDS = [
   },
   {
     region: 'OCEANIA', field: 'Cricket', at: [174.8, -41.3],
-    head: 'Rahul’s century takes India to 344-2 at tea in Wellington',
+    head: 'Rahul 136, Gill 98: India lead NZ by 118 in Wellington',
     sure: 'CONFIRMED', src: 'REUTERS',
-    art: ['sport', { kind: 'cricket', big: '344-2', small: 'INDIA AT TEA', label: 'NZ v INDIA' }],
+    art: ['sport', { kind: 'cricket', big: '486-4', small: 'INDIA, DAY 3', label: 'NZ v INDIA' }],
   },
   {
     region: 'OCEANIA', field: 'Weather', at: [145.6, -35.8], nudge: [-6, 0],
@@ -70,7 +70,7 @@ export const CARDS = [
   },
   {
     region: 'LATIN AMERICA', field: 'Flood', at: [-90.3, -0.7],
-    head: 'Flash flood on Galápagos island kills one, affects 2,000',
+    head: 'Galápagos flash flood kills one, hits 2,000',
     sure: 'REPORTED', src: 'MERCOPRESS',
     art: ['ship', { label: 'SANTA CRUZ', label2: '1 DEAD', people: false, hull: '#5b6b7a' }],
   },
@@ -81,41 +81,51 @@ export const CARDS = [
     art: ['cyclone', { label: 'COOK ISLANDS', label2: 'XAVIER' }],
   },
   {
-    region: 'OCEANIA', field: 'Election', at: [145.0, -37.8], nudge: [8, 6],
-    head: 'Victoria’s leaders start final week before 28 Nov vote',
-    sure: 'CONFIRMED', src: 'ABC',
-    art: ['vote', { label: 'VICTORIA', big: '7', small: 'DAYS TO GO' }],
+    region: 'MIDDLE EAST', field: 'Disaster', at: [47.8, 30.5], nudge: [6, 6],
+    head: 'Fire at Basra power station kills at least four',
+    sure: 'CONFIRMED', src: 'INA · REUTERS',
+    art: ['fire', { label: 'BASRA', big: '4', small: 'DEAD, 30+ HURT' }],
   },
   {
     region: 'N. AMERICA', field: 'Motor racing', at: [-115.1, 36.2],
-    head: 'Las Vegas Grand Prix: Russell fastest in final practice',
-    sure: 'CONFIRMED', src: 'REUTERS',
-    art: ['sport', { kind: 'car', bg: '#2a2140', big: 'P1', small: 'RUSSELL', label: 'LAS VEGAS' }],
+    head: 'Verstappen takes Las Vegas pole after Antonelli penalty',
+    sure: 'CONFIRMED', src: 'REUTERS · GUARDIAN',
+    art: ['sport', { kind: 'car', bg: '#2a2140', big: 'P1', small: 'VERSTAPPEN', label: 'LAS VEGAS' }],
   },
   {
     region: 'MIDDLE EAST', field: 'Iran war', at: [51.4, 35.7],
-    head: 'Iran still wants a deal to end the war, Araqchi tells daily',
+    head: 'Iran still seeks a deal to end the war, Araqchi says',
     sure: 'CLAIM', src: 'IRAN DAILY · REUTERS',
     art: ['flags', { a: ['#239f40', '#fff', '#da0000'], b: ['#b22234', '#fff', '#3c3b6e'], label: 'TEHRAN', rift: true }],
   },
   {
-    region: 'ASIA', field: 'Education', at: [127.0, 37.5], nudge: [8, 0],
-    head: 'South Korea’s university essay tests begin under cheating cloud',
-    sure: 'REPORTED', src: 'SBS',
-    art: ['number', { label: 'SEOUL', big: '111', small: 'CAUGHT CHEATING', bg: '#eee7f5' }],
+    region: 'MIDDLE EAST', field: 'Shipping', at: [56.2, 26.6], nudge: [8, 4],
+    head: 'Tanker hit by a projectile in the Strait of Hormuz',
+    sure: 'OFFICIAL', src: 'UKMTO',
+    art: ['ship', { label: 'OFF KHASAB', label2: 'STERN HIT', smoke: true }],
   },
 ];
 
 // Numbered briefs: place, then one line.
 export const BRIEFS = [
-  { region: 'OCEANIA', field: 'Sport', place: 'Australia', text: 'Hazlewood backs Cummins, denies "Sandpapergate" knowledge', at: [151.2, -33.9] },
-  { region: 'ASIA', field: 'Energy', place: 'Pakistan', text: 'new fuel prices in force: petrol Rs322, diesel Rs357', at: [73.0, 33.7] },
-  { region: 'ASIA', field: 'Media', place: 'North Korea', text: 'KCNA silent on Trump, who left Asia without meeting Kim', at: [125.7, 39.0] },
+  { region: 'OCEANIA', field: 'Sport', place: 'Cricket', text: 'board unanimously backs Cummins as captain', at: [151.2, -33.9] },
+  { region: 'ASIA', field: 'Energy', place: 'Pakistan', text: 'new prices: petrol Rs322, diesel Rs357', at: [73.0, 33.7] },
+  { region: 'EUROPE', field: 'Arms control', place: 'Geneva', text: 'killer-robot talks: 2 more years, no ban', at: [6.1, 46.2] },
+  { region: 'N. AMERICA', field: 'Crypto', place: 'Bitcoin', text: 'down 5% to $55,830, a two-year low', at: [-74.0, 40.7] },
+  { region: 'N. AMERICA', field: 'Cyber', place: 'US', text: 'FBI and farm agency hacked, media say', at: [-77.0, 38.9] },
+  { region: 'ASIA', field: 'AI', place: 'S. Korea', text: 'Lee tours AI data centre, urges speed', at: [127.0, 37.5] },
+  { region: 'ASIA', field: 'Markets', place: 'Indonesia', text: 'OJK sanctions 10 stock-market cases', at: [106.8, -6.2] },
+  { region: 'ASIA', field: 'Tech', place: 'India', text: 'Congress protests at Meta offices', at: [77.2, 28.6] },
+  { region: 'ASIA', field: 'Weather', place: 'Bengal', text: 'Akvan fades to a low; rain into Sunday', at: [88.4, 22.6] },
+  { region: 'OCEANIA', field: 'Consumers', place: 'Canberra', text: 'to review laws for AI shopping agents', at: [149.1, -35.3] },
+  { region: 'OCEANIA', field: 'Politics', place: 'Victoria', text: 'last Saturday of campaign before vote', at: [145.0, -37.8] },
+  { region: 'ASIA', field: 'Education', place: 'Seoul', text: 'essay exams open; 111 caught cheating', at: [127.0, 37.5] },
 ];
 
 // The day by the clock, in UTC. Only events whose time is on record.
 export const CLOCK = [
   { t: '00:09', label: 'M6.9 quake, Peru', anchor: 'start', dx: -6 },
+  { t: '04:13', label: 'Bitcoin at 2-year low' },
 ];
 
 // Left out on purpose: big stories that broke before Saturday, with the day they belong to.
