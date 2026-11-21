@@ -108,7 +108,9 @@ export const CARDS = [
 
 // Numbered briefs: place, then one line.
 export const BRIEFS = [
-  { region: 'OCEANIA', field: 'Wildlife', place: 'Christmas Island', text: 'red crabs begin their annual march to the sea', at: [105.6, -10.5] },
+  { region: 'OCEANIA', field: 'Sport', place: 'Australia', text: 'Hazlewood backs Cummins, denies "Sandpapergate" knowledge', at: [151.2, -33.9] },
+  { region: 'ASIA', field: 'Energy', place: 'Pakistan', text: 'new fuel prices in force: petrol Rs322, diesel Rs357', at: [73.0, 33.7] },
+  { region: 'ASIA', field: 'Media', place: 'North Korea', text: 'KCNA silent on Trump, who left Asia without meeting Kim', at: [125.7, 39.0] },
 ];
 
 // The day by the clock, in UTC. Only events whose time is on record.
